@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: git@github.com:xrayid/airflow-k8s.git
     targetRevision: HEAD
-    path: guestbook
+    path: airflow-k8s
   destination:
     server: https://kubernetes.default.svc
-    namespace: guestbook
+    namespace: airflow
