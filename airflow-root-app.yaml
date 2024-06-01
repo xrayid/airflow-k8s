@@ -11,8 +11,3 @@ spec:
     path: airflow-k8s
   destination:
     server: https://kubernetes.default.svc
-    namespace: airflow
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-      - PruneLast=true
