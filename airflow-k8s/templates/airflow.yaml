@@ -16,6 +16,9 @@ spec:
         createUserJob:
           useHelmHooks: false
           applyCustomEnv: false
+          jobAnnotations:
+            "argocd.argoproj.io/hook": PostSync
+            "argocd.argoproj.io/hook-delete-policy": HookSucceeded
         migrateDatabaseJob:
           useHelmHooks: false
           applyCustomEnv: false
