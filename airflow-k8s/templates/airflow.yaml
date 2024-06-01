@@ -18,9 +18,8 @@ spec:
         migrateDatabaseJob:
           useHelmHooks: false
           applyCustomEnv: false
-        migrateDatabaseJob:
           jobAnnotations:
-            "argocd.argoproj.io/hook": Sync
+              "argocd.argoproj.io/hook": Sync
         useStandardNaming: true
   destination:
     server: "https://kubernetes.default.svc"
