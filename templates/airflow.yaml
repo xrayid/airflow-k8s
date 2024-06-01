@@ -2,12 +2,26 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: airflow
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     chart: apache-airflow/airflow
     repoURL: https://airflow.apache.org
     targetRevision: {{ .Values.airflow.version }}
+    helm:
+      values: |
+        createUserJob:
+          useHelmHooks: false
+          applyCustomEnv: false
+        migrateDatabaseJob:
+          useHelmHooks: false
+          applyCustomEnv: false
+        migrateDatabaseJob:
+          jobAnnotations:
+            "argocd.argoproj.io/hook": Sync
+        useStandardNaming: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: airflow
