@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: airflow
+spec:
+  project: default
+  source:
+    chart: apache-airflow/airflow
+    repoURL: https://airflow.apache.org
+    targetRevision: {{ .Values.airflow.version }}
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: airflow
