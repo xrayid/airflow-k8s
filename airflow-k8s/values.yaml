@@ -1,2 +1,2 @@
 airflow:
-  helmChartVersion: "1.13.1"
+  helmChartVersion: "1.14.0"
